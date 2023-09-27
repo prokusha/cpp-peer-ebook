@@ -18,8 +18,8 @@ public:
         ++pages_[page];
     }
 
-    void PrintStat(int id) {
-        std::cout << GetReadStat(id) << std::endl;
+    void PrintStat(int id, std::ostream& output) {
+        output << GetReadStat(id) << std::endl;
     }
 
 private:
@@ -58,7 +58,7 @@ int main() {
         std::string command = Input<std::string>();
         if (command == "CHEER") {
             int id = Input<int>();
-            book.PrintStat(id);
+            book.PrintStat(id, std::cout);
         } else if (command == "READ") {
             int id = Input<int>();
             int page = Input<int>();
